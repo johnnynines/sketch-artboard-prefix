@@ -1,10 +1,10 @@
 var onRun = function (context) {
   var doc = context.document;
   var selection = context.selection;
+ 
   var alert = [COSAlertWindow new]; 
 
   if(selection.count() == 0) {
-    
     doc.showMessage("notning is selected");
   } else {
 
