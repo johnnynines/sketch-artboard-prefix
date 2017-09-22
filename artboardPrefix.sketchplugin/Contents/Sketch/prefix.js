@@ -1,30 +1,25 @@
 var onRun = function (context) {
-
   var doc = context.document;
-  var pg = doc.currentPage();
-  var ab = pg.currentArtboard();
   var selection = context.selection;
-  var abNames = [];
-  var thePage = "";
-  var theLayer = "";
-  var theArtboard = "";
-  var selectedLayer = context.selection.firstObject();
-  var selectedLayerName = selectedLayer.name();
-  var masterSymbol = selectedLayer;
-
-  // Create an alert view in the app
   var alert = [COSAlertWindow new]; 
+
+  if(selection.count() == 0) {
+    
+    doc.showMessage("notning is selected");
+  } else {
+
+    // Create an alert view in the app
 
   [alert setMessageText:"Artboard Prefix"];
   [alert setInformativeText:"Add a prefix to all selected artboards"];
 
   [alert addTextLabelWithValue:"Enter Prefix:"];
-  [alert addTextFieldWithValue:"Hey"];
+  [alert addTextFieldWithValue:"MY PREFIX"];
 
   var responseCode = [alert runModal];
   var prefixValue = [[alert viewAtIndex:1] stringValue]
 
-    for(var i = 0; i < selection.count(); i++){
+    for(var i = 0; i < selection.count(); i++) {
       if(selection[i].class() == "MSArtboardGroup") {
         var artboard = selection[i];
         var currentName = artboard.name();
@@ -34,5 +29,5 @@ var onRun = function (context) {
         artboard.setName(currentNamePath + prefixValue + '_' +  newName);
       }
     }
-  doc.showMessage(prefixValue + ' has been added to your artboards ');
+  }
 }
