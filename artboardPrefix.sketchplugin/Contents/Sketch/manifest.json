@@ -1,0 +1,24 @@
+{
+  "name" : "Add prefix to selected Artboards",
+  "author" : "Johnny Bilotta",
+  "authorEmail" : "",
+  "description" : "Allows you to add a prefix to multiple artboards at once.",
+  "version" : "1.0",
+  "identifier" : "j9ArtboardPrefix.plugin",
+  "commands" : [
+    {
+      "name" : "Add Artboard Prefix",
+      "script" : "prefix.js",
+      "identifier" : "Artboard-Prefix",
+      "handlers" :"onRun",
+      "shortcut" : ""
+    }
+  ],
+
+  "menu":
+  {
+    "items": [
+      "Artboard-Prefix"
+    ]
+  }
+}
